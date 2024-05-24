@@ -13,18 +13,11 @@ public class CourseNotDeletedException extends Exception {
 		this.courseCode = courseCode;
 	}
 
-	/**
-	 * Getter function for course code
-	 * @return
-	 */
 	public String getCourseCode()
 	{
 		return courseCode;
 	}
-	
-	/**
-	 * Message thrown by exception
-	 */
+
 	@Override
 	public String getMessage() 
 	{

@@ -5,20 +5,12 @@ public class UserIdAlreadyInUseException extends Exception{
 	private String userId;
 	
 	
-	/***
-	 * Setter function for UserId
-	 * @param userId
-	 */
 	
 	public UserIdAlreadyInUseException(String id) {
 		userId = id;
 	}
 	
-	/***
-	 * Getter function for UserId
-	 * @param userId
-	 */
-	
+
 	public String getUserId() {
 		return userId;
 	}

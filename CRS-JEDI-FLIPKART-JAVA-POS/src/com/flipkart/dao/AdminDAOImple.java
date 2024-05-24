@@ -38,16 +38,10 @@ public class AdminDAOImple implements AdminDAOInterface{
 	private static volatile AdminDAOImple instance = null;
 	//private static Logger logger = Logger.getLogger(AdminDaoOperation.class);
 	private PreparedStatement statement = null;
-	
-	/**
-	 * Default Constructor
-	 */
+
 	private AdminDAOImple(){}
 	
-	/**
-	 * Method to make AdminDaoOperation Singleton
-	 * @return
-	 */
+
 	public static AdminDAOImple getInstance()
 	{
 		if(instance == null)
@@ -61,12 +55,7 @@ public class AdminDAOImple implements AdminDAOInterface{
 	
 	Connection connection = DBUtils.getConnection();
 	
-	/**
-	 * Remove Course using SQL commands
-	 * @param courseCode
-	 * @throws CourseNotFoundException
-	 * @throws CourseNotDeletedException 
-	 */
+
 	@Override
 	public void removeCourse(String courseCode) throws CourseNotFoundException, CourseNotDeletedException{
 		
@@ -94,11 +83,6 @@ public class AdminDAOImple implements AdminDAOInterface{
 		
 	}
 
-	/**
-	 * Add Course using SQL commands
-	 * @param course
-	 * @throws CourseFoundException
-	 */
 	@Override
 	public void addCourse(Course course) throws CourseExistsAlreadyException{
 		
@@ -133,11 +117,7 @@ public class AdminDAOImple implements AdminDAOInterface{
 		}
 		
 	}
-	
-	/**
-	 * Fetch Students yet to approved using SQL commands
-	 * @return List of Students yet to approved
-	 */
+
 	@Override
 	public List<Student> viewPendingAdmissions() {
 		
@@ -175,11 +155,6 @@ public class AdminDAOImple implements AdminDAOInterface{
 		
 	}
 
-	/**
-	 * Approve Student using SQL commands
-	 * @param studentId
-	 * @throws StudentNotFoundException
-	 */
 	@Override
 	public void approveStudent(String studentId) throws StudentNotFoundForApprovalException {
 		
@@ -207,12 +182,6 @@ public class AdminDAOImple implements AdminDAOInterface{
 		
 	}
 
-	/**
-	 * Method to add user using SQL commands
-	 * @param user
-	 * @throws UserNotAddedException
-	 * @throws UserIdAlreadyInUseException 
-	 */
 	@Override
 	public void addUser(User user) throws UserNotAddedException, UserIdAlreadyInUseException{
 		
@@ -248,12 +217,6 @@ public class AdminDAOImple implements AdminDAOInterface{
 		
 	}
 
-	/**
-	 * Add professor using SQL commands
-	 * @param professor
-	 * @throws UserIdAlreadyInUseException 
-	 * @throws ProfessorNotAddedException 
-	 */
 	@Override
 	public void addProfessor(Professor professor) throws UserIdAlreadyInUseException, ProfessorNotAddedException {
 		
@@ -301,14 +264,7 @@ public class AdminDAOImple implements AdminDAOInterface{
 		} 
 		
 	}
-	
-	/**
-	 * Assign courses to Professor using SQL commands
-	 * @param courseCode
-	 * @param professorId
-	 * @throws CourseNotFoundException
-	 * @throws UserNotFoundException 
-	 */
+
 	@Override
 	public void assignCourse(String courseCode, String professorId) throws CourseNotFoundException, UserNotFoundException{
 		
@@ -337,12 +293,7 @@ public class AdminDAOImple implements AdminDAOInterface{
 		}
 		
 	}
-	
-	/**
-	 * View courses in the catalog
-	 * @param Catalog ID
-	 * @return List of courses in the catalog
-	 */
+
 	public List<Course> viewCourses() {
 		
 		statement = null;
@@ -375,11 +326,7 @@ public class AdminDAOImple implements AdminDAOInterface{
 		return courseList; 
 		
 	}
-	
-	/**
-	 * View professor in the institute
-	 * @return List of the professors in the institute  
-	 */
+
 	@Override
 	public List<Professor> viewProfessors() {
 		
@@ -479,24 +426,6 @@ public class AdminDAOImple implements AdminDAOInterface{
 		
 		
 	}
-
-//	@Override
-//	public void addProfessor(Professor professor) throws ProfessorNotAddedException, UserIdAlreadyInUseException {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public void addCourse(Course course) throws CourseExistsAlreadyException {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	@Override
-//	public void addUser(User user) throws UserNotAddedException, UserIdAlreadyInUseException {
-//		// TODO Auto-generated method stub
-//		
-//	}
 
 	
 	

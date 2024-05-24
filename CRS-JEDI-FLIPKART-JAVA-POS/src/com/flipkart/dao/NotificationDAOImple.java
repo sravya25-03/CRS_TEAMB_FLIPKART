@@ -22,20 +22,12 @@ public class NotificationDAOImple implements NotificationDAOInterface{
 
 	
 	private static volatile NotificationDAOImple instance=null;
-//	private static Logger logger = Logger.getLogger(NotificationDaoOperation.class);
 
-	/**
-	 * Default Constructor
-	 */
 	private NotificationDAOImple()
 	{
 
 	}
 	
-	/**
-	 * Method to make NotificationDaoOperation Singleton
-	 * @return
-	 */
 	public static NotificationDAOImple getInstance()
 	{
 		if(instance==null)
@@ -47,16 +39,7 @@ public class NotificationDAOImple implements NotificationDAOInterface{
 		}
 		return instance;
 	}
-	
-	/**
-	 * Send Notification using SQL commands
-	 * @param type: type of the notification to be sent
-	 * @param studentId: student to be notified
-	 * @param modeOfPayment: mode of payment used, defined in enum
-	 * @param amount
-	 * @return notification id for the record added in the database
-	 * @throws SQLException
-	 */
+
 	@Override
 	public int sendNotification(NotificationTypeConstant type, int studentId,PaymentModeConstant modeOfPayment,double amount) throws SQLException{
 		int notificationId=0;
@@ -101,14 +84,6 @@ public class NotificationDAOImple implements NotificationDAOInterface{
 		return notificationId;
 	}
 
-	/**
-	 * Perform Payment actions using SQL commands
-	 * @param studentId: Id of the student for which the payment is done
-	 * @param modeOfPayment: mode of payment used, defined in enum
-	 * @param amount 
-	 * @return: reference id of the transaction
-	 * @throws SQLException
-	 */
 	public UUID addPayment(int studentId, PaymentModeConstant modeOfPayment,double amount) throws SQLException
 	{
 		UUID referenceId;

@@ -18,18 +18,11 @@ public class ProfessorDAOImple implements ProfessorDAOInterface {
 	private static volatile ProfessorDAOImple instance=null;
 //	private static Logger logger = Logger.getLogger(UserDaoOperation.class);
 
-	/**
-	 * Default Constructor
-	 */
 	private ProfessorDAOImple()
 	{
 		
 	}
-	
-	/**
-	 * Method to make ProfessorDaoOperation Singleton
-	 * @return
-	 */
+
 	public static ProfessorDAOImple getInstance()
 	{
 		if(instance==null)
@@ -41,13 +34,7 @@ public class ProfessorDAOImple implements ProfessorDAOInterface {
 		}
 		return instance;
 	}
-	
-	
-	/**
-	 * Method to get Courses by Professor Id using SQL Commands
-	 * @param userId, prof id of the professor
-	 * @return get the courses offered by the professor.
-	 */
+
 	@Override
 	public List<Course> getCoursesByProfessor(String profId) {
 		Connection connection=DBUtils.getConnection();
@@ -80,12 +67,6 @@ public class ProfessorDAOImple implements ProfessorDAOInterface {
 		
 	}
 
-	/**
-	 * Method to view list of enrolled Students using SQL Commands
-	 * @param: profId: professor id 
-	 * @param: courseCode: course code of the professor
-	 * @return: return the enrolled students for the corresponding professor and course code.
-	 */
 	@Override
 	public List<EnrolledStudent> getEnrolledStudents(String courseId) {
 		Connection connection=DBUtils.getConnection();
@@ -116,13 +97,7 @@ public class ProfessorDAOImple implements ProfessorDAOInterface {
 		}
 		return enrolledStudents;
 	}
-	
-	/**
-	 * Method to GradeConstant a student using SQL Commands
-	 * @param: profId: professor id 
-	 * @param: courseCode: course code for the corresponding 
-	 * @return: returns the status after adding the grade
-	 */
+
 	public Boolean addGrade(String studentId,String courseCode,String grade) {
 		Connection connection=DBUtils.getConnection();
 		try {
@@ -154,13 +129,7 @@ public class ProfessorDAOImple implements ProfessorDAOInterface {
 		}
 		return false;
 	}
-	
 
-	/**
-	 * Method to Get professor name by id
-	 * @param profId
-	 * @return Professor Id in string
-	 */
 	@Override
 	public String getProfessorById(String profId)
 	{

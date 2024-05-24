@@ -19,21 +19,12 @@ import com.flipkart.utils.DBUtils;
 public class StudentDAOImple implements StudentDAOInterface {
 	
 	private static volatile StudentDAOImple instance=null;
-//	private static Logger logger = Logger.getLogger(StudentDaoOperation.class);
 
-	/**
-	 * Default Constructor
-	 */
 	private StudentDAOImple()
 	{
 		
 	}
-	
-	/**
-	 * Method to make StudentDaoOperation Singleton
-	 * @return
-	 */
-	public static StudentDAOImple getInstance()
+ public static StudentDAOImple getInstance()
 	{
 		if(instance==null)
 		{
@@ -45,12 +36,6 @@ public class StudentDAOImple implements StudentDAOInterface {
 		return instance;
 	}
 
-	/**
-	 * Method to add student to database
-	 * @param student: student object containing all the fields
-	 * @return true if student is added, else false
-	 * @throws StudentNotRegisteredException
-	 */
 	@Override
 	public String addStudent(Student student) throws StudentNotRegisteredException{
 		Connection connection=DBUtils.getConnection();
@@ -102,12 +87,7 @@ public class StudentDAOImple implements StudentDAOInterface {
 		}
 		return studentId;
 	}
-	
-	/**
-	 * Method to retrieve Student Id from User Id
-	 * @param userId
-	 * @return Student Id
-	 */
+
 	@Override
 	public String getStudentId(String userId) {
 		Connection connection=DBUtils.getConnection();
@@ -129,12 +109,7 @@ public class StudentDAOImple implements StudentDAOInterface {
 		
 		return null;
 	}
-	
-	/**
-	 * Method to check if Student is approved
-	 * @param studentId
-	 * @return boolean indicating if student is approved
-	 */
+
 	@Override
 	public boolean isApproved(String studentId) {
 		Connection connection=DBUtils.getConnection();

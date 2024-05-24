@@ -13,11 +13,6 @@ public enum RoleConstant {
 		return name; 
 	}
 	
-	/**
-	 * Method to get RoleConstant object from String
-	 * @param role
-	 * @return RoleConstant object
-	 */
 	public static RoleConstant stringToName(String role)
 	{
 		RoleConstant userRole=null;

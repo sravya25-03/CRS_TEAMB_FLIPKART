@@ -9,11 +9,7 @@ public class StudentNotRegisteredException extends Exception{
 	 {
 		 this.studentName=studentName;
 	 }
-	 
-	 /**
-	  * getter function for studentName
-	  * @return
-	  */
+
 	 public String getStudentName()
 	 {
 		 return studentName;

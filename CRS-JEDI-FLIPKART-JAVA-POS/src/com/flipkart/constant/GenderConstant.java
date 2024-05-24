@@ -5,19 +5,12 @@ public enum GenderConstant {
 	MALE(1),FEMALE(2),OTHER(3);
 	private final int gender;
 	
-	/**
-	 * Parameterized Constructor
-	 * @param gender
-	 */
+
 	private GenderConstant(int gender)
 	{
 		this.gender=gender;
 	}
-	
-	/**
-	 * Method to return gender type in String
-	 * @return GenderConstant name in String
-	 */
+
 	@Override
 	public String toString()
 	{
@@ -25,11 +18,6 @@ public enum GenderConstant {
 		return name; 
 	}
 	
-	/**
-	 * Method to get GenderConstant object depending upon user input
-	 * @param val
-	 * @return GenderConstant object
-	 */
 	public static GenderConstant getName(int val)
 	{
 		GenderConstant gender=GenderConstant.OTHER;
@@ -45,12 +33,7 @@ public enum GenderConstant {
 		}
 		return gender;
 	}
-	
-	/**
-	 * Method to convert String to GenderConstant object
-	 * @param val
-	 * @return GenderConstant object
-	 */
+
 	public static GenderConstant stringToGender(String val)
 	{
 		GenderConstant gender=GenderConstant.OTHER;

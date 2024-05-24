@@ -14,26 +14,17 @@ public enum GradeConstant {
 
     final private int value;
 
-    /**
-     * Parameterized Constructor
-     * @param value
-     */
+
     private GradeConstant(int value) {
         this.value = value;
     }
 
-    /**
-     * Method to get GradeConstant Value
-     * @return GradeConstant Value
-     */
+ 
     public int hasValue() {
         return this.value;
     }
 
-    /**
-     * Method to convert GradeConstant enum to String
-     * @return GradeConstant in String
-     */
+
     @Override
     public String toString() {
     	

@@ -14,18 +14,12 @@ import com.flipkart.utils.DBUtils;
 
 public class UserDAOImple implements UserDAOInterface{
 	private static volatile UserDAOImple instance=null;
-	/**
-	 * Default Constructor
-	 */
+
 	private UserDAOImple()
 	{
 		
 	}
-	
-	/**
-	 * Method to make UserDaoOperation Singleton
-	 * @return
-	 */
+
 	public static UserDAOImple getInstance()
 	{
 		if(instance==null)
@@ -38,12 +32,6 @@ public class UserDAOImple implements UserDAOInterface{
 		return instance;
 	}
 
-	/**
-	 * Method to update password of user in DataBase
-	 * @param userID
-	 * @param newPassword
-	 * @return Update Password operation Status
-	 */
 	@Override
 	public boolean updatePassword(String userId, String newPassword) {
 		Connection connection=DBUtils.getConnection();
@@ -75,14 +63,7 @@ public class UserDAOImple implements UserDAOInterface{
 		}
 		return false;
 	}
-	
-	/**
-	 * Method to verify credentials of Users from DataBase
-	 * @param userId
-	 * @param password
-	 * @return Verify credentials operation status
-	 * @throws UserNotFoundException
-	 */
+
 	@Override
 	public boolean verifyCredentials(String userId, String password) throws UserNotFoundException {
 		Connection connection = DBUtils.getConnection();
@@ -122,12 +103,6 @@ public class UserDAOImple implements UserDAOInterface{
 		return false;
 	}
 
-	
-	/**
-	 * Method to get RoleConstant of User from DataBase
-	 * @param userId
-	 * @return RoleConstant
-	 */
 	@Override
 	public String getRole(String userId) 
 	{
@@ -163,12 +138,7 @@ public class UserDAOImple implements UserDAOInterface{
 		}
 		return null;
 	}
-	
-	/**
-	 * Method to get name of User from DataBase
-	 * @param userId
-	 * @return name
-	 */
+
 	@Override
 	public String getName(String userId) 
 	{

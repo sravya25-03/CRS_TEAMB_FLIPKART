@@ -6,11 +6,7 @@ public enum PaymentModeConstant {
 	
 	CARD_PAYMENT,NET_BANKING, OFFLINE;
 	
-	/**
-	 * Method to get Mode of Payment
-	 * @param value
-	 * @return Mode of Payment
-	 */
+
 	public static PaymentModeConstant getPaymentMode(int value)
 	{
 		switch(value)
