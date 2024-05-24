@@ -1,4 +1,4 @@
-package com.flipkart.service;
+package com.flipkart.business;
 
 import com.flipkart.dao.UserDAOInterface;
 import com.flipkart.dao.UserDAOImple;

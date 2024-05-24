@@ -7,23 +7,20 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import com.flipkart.business.NotificationInterface;
+import com.flipkart.business.NotificationOperation;
+import com.flipkart.business.StudentInterface;
+import com.flipkart.business.StudentOperation;
+import com.flipkart.business.UserInterface;
+import com.flipkart.business.UserOperation;
 import com.flipkart.constant.GenderConstant;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.exception.StudentNotRegisteredException;
 import com.flipkart.exception.UserNotFoundException;
 
-import com.flipkart.service.NotificationInterface;
-import com.flipkart.service.NotificationOperation;
 
 
-import com.flipkart.service.StudentInterface;
-import com.flipkart.service.StudentOperation;
-import com.flipkart.service.UserInterface;
-import com.flipkart.service.UserOperation;
-
-
-
-public class CRSApplication {
+public class CRSMainApplicationClient {
 
 
 	static boolean loggedin = false;
@@ -33,7 +30,7 @@ public class CRSApplication {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		CRSApplication crsApplication=new CRSApplication();
+		CRSMainApplicationClient crsApplication=new CRSMainApplicationClient();
 		int userInput;	
 		//create the main menu
 		createMainMenu();
@@ -135,7 +132,7 @@ public class CRSApplication {
 		            System.out.println("|   Admin Login Successful   |");
 		            System.out.println("+----------------------------+");
 		            System.out.println("       Welcome " + userInterface.getName(userId));
-		            AdminCRSMenu adminMenu = new AdminCRSMenu();
+		            CRSAdminMenu adminMenu = new CRSAdminMenu();
 		            adminMenu.createMenu();
 		            break;
 		        case "PROFESSOR":
@@ -145,7 +142,7 @@ public class CRSApplication {
 		            System.out.println("+-----------------------------+");
 		            System.out.println("        Welcome " + userInterface.getName(userId));
 
-		            ProfessorCRSMenu professorMenu = new ProfessorCRSMenu();
+		            CRSProfessorMenu professorMenu = new CRSProfessorMenu();
 		            professorMenu.createMenu(userId);
 		            break;
 		        case "STUDENT":
@@ -158,7 +155,7 @@ public class CRSApplication {
 		                System.out.println("+----------------------------+");
 		                System.out.println("     Welcome " + userInterface.getName(userId));
 
-		                StudentCRSMenu studentMenu = new StudentCRSMenu();
+		                CRSStudentMenu studentMenu = new CRSStudentMenu();
 		                studentMenu.create_menu(studentId);
 		            } else {
 		                System.out.println("\u001B[31m+---------------------------------------------------------------------+");

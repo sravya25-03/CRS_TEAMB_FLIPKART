@@ -1,4 +1,4 @@
-package com.flipkart.service;
+package com.flipkart.business;
 
 import com.flipkart.bean.SemRegistration;
 import com.flipkart.constant.RoleConstant;
@@ -6,7 +6,7 @@ import com.flipkart.dao.StudentDAOInterface;
 import com.flipkart.dao.StudentDAOImple;
 import com.flipkart.exception.StudentNotRegisteredException;
 import com.flipkart.bean.Student;
-import com.flipkart.client.CRSApplication;
+import com.flipkart.client.CRSMainApplicationClient;
 import com.flipkart.constant.GenderConstant;
 
 

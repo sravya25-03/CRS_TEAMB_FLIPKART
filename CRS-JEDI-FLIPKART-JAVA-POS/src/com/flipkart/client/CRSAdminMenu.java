@@ -12,6 +12,12 @@ import com.flipkart.bean.Grade;
 import com.flipkart.bean.Professor;
 import com.flipkart.bean.RegisteredCourse;
 import com.flipkart.bean.Student;
+import com.flipkart.business.AdminInterface;
+import com.flipkart.business.AdminOperation;
+import com.flipkart.business.NotificationInterface;
+import com.flipkart.business.NotificationOperation;
+import com.flipkart.business.RegistrationInterface;
+import com.flipkart.business.RegistrationOperation;
 import com.flipkart.constant.GenderConstant;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.constant.RoleConstant;
@@ -22,15 +28,9 @@ import com.flipkart.exception.ProfessorNotAddedException;
 import com.flipkart.exception.StudentNotFoundForApprovalException;
 import com.flipkart.exception.UserIdAlreadyInUseException;
 import com.flipkart.exception.UserNotFoundException;
-import com.flipkart.service.AdminInterface;
-import com.flipkart.service.AdminOperation;
-import com.flipkart.service.NotificationInterface;
-import com.flipkart.service.NotificationOperation;
-import com.flipkart.service.RegistrationInterface;
-import com.flipkart.service.RegistrationOperation;
 
 
-public class AdminCRSMenu {
+public class CRSAdminMenu {
 
 	AdminInterface adminOperation = AdminOperation.getInstance();
 	Scanner in = new Scanner(System.in);
@@ -41,7 +41,7 @@ public class AdminCRSMenu {
 	 * Method to Create Admin Menu
 	 */
 	public void createMenu() {
-	    while (CRSApplication.loggedin) {
+	    while (CRSMainApplicationClient.loggedin) {
 	        System.out.println("+-----------------+");
 	        System.out.println("|   Admin Menu    |");
 	        System.out.println("+-----------------+");
@@ -96,7 +96,7 @@ public class AdminCRSMenu {
 	                break;
 
 	            case 9:
-	                CRSApplication.loggedin = false;
+	                CRSMainApplicationClient.loggedin = false;
 	                return;
 
 	            default:

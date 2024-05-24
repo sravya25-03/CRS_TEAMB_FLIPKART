@@ -5,19 +5,19 @@ package com.flipkart.client;
 
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Grade;
+import com.flipkart.business.*;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.constant.PaymentModeConstant;
 import com.flipkart.exception.CourseLimitExceededException;
 import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.SeatNotAvailableException;
-import com.flipkart.service.*;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 
-public class StudentCRSMenu {
+public class CRSStudentMenu {
 
 	Scanner sc = new Scanner(System.in);
 	RegistrationInterface registrationInterface = RegistrationOperation.getInstance();
@@ -30,7 +30,7 @@ public class StudentCRSMenu {
 
 		is_registered = getRegistrationStatus(studentId);
 
-		while (CRSApplication.loggedin) {
+		while (CRSMainApplicationClient.loggedin) {
 
 			System.out.println("+------------------------+");
 			System.out.println("|     Student Menu       |");
@@ -82,7 +82,7 @@ public class StudentCRSMenu {
 				break;
 
 			case 8:
-				CRSApplication.loggedin = false;
+				CRSMainApplicationClient.loggedin = false;
 				break;
 
 			default:

@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Scanner;
 import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
+import com.flipkart.business.ProfessorInterface;
+import com.flipkart.business.ProfessorOperation;
 import com.flipkart.exception.GradeNotAllotedException;
-import com.flipkart.service.ProfessorInterface;
-import com.flipkart.service.ProfessorOperation;
 import com.flipkart.validator.ProfessorValidator;
 
 
 
-public class ProfessorCRSMenu {
+public class CRSProfessorMenu {
 	
 	ProfessorInterface professorInterface = ProfessorOperation.getInstance();
 
@@ -27,7 +27,7 @@ public class ProfessorCRSMenu {
 		Scanner in = new Scanner(System.in);
 		
 		int input;
-		while (CRSApplication.loggedin) {
+		while (CRSMainApplicationClient.loggedin) {
 		    System.out.println("+---------------------------+");
 		    System.out.println("|     Professor Menu        |");
 		    System.out.println("+---------------------------+");
@@ -52,7 +52,7 @@ public class ProfessorCRSMenu {
 		            addGrade(profID);
 		            break;
 		        case 4:
-		            CRSApplication.loggedin = false;
+		            CRSMainApplicationClient.loggedin = false;
 		            return;
 		        default:
 		            System.out.println("Please select an appropriate option...");

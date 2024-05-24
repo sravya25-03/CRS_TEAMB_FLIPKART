@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.flipkart.service;
+package com.flipkart.business;
 
 import com.flipkart.exception.*;
 import com.flipkart.validator.AdminValidator;

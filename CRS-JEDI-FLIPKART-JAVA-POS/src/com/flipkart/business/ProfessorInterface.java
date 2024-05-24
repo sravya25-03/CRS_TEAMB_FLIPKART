@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.flipkart.service;
+package com.flipkart.business;
 
 import java.sql.SQLException;
 import java.util.List;

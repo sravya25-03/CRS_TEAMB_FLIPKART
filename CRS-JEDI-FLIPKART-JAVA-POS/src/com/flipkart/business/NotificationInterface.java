@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.flipkart.service;
+package com.flipkart.business;
 
 
 import java.util.UUID;
