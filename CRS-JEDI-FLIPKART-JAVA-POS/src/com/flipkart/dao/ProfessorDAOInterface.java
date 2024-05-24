@@ -5,16 +5,7 @@ import com.flipkart.bean.Course;
 import com.flipkart.bean.EnrolledStudent;
 import com.flipkart.bean.Student;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public interface ProfessorDAOInterface {
 	

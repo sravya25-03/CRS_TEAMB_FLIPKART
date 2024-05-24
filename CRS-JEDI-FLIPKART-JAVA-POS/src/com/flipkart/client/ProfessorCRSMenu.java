@@ -15,16 +15,6 @@ import com.flipkart.service.ProfessorOperation;
 import com.flipkart.validator.ProfessorValidator;
 
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class ProfessorCRSMenu {
 	

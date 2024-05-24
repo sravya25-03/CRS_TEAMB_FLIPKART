@@ -21,16 +21,7 @@ import com.flipkart.service.StudentOperation;
 import com.flipkart.service.UserInterface;
 import com.flipkart.service.UserOperation;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public class CRSApplication {
 

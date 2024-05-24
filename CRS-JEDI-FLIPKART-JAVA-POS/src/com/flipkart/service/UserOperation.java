@@ -4,16 +4,7 @@ import com.flipkart.dao.UserDAOInterface;
 import com.flipkart.dao.UserDAOImple;
 import com.flipkart.exception.UserNotFoundException;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public class UserOperation implements UserInterface {
 	

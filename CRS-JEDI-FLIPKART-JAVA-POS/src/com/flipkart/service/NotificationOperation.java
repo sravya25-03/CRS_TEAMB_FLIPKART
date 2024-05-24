@@ -10,16 +10,7 @@ import com.flipkart.constant.PaymentModeConstant;
 import com.flipkart.dao.NotificationDAOInterface;
 import com.flipkart.dao.NotificationDAOImple;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public class NotificationOperation implements NotificationInterface{
 	

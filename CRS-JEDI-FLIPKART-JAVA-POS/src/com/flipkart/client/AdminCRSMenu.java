@@ -29,16 +29,6 @@ import com.flipkart.service.NotificationOperation;
 import com.flipkart.service.RegistrationInterface;
 import com.flipkart.service.RegistrationOperation;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class AdminCRSMenu {
 

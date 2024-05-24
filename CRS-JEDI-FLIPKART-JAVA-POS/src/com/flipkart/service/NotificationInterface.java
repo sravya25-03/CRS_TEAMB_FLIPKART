@@ -9,16 +9,7 @@ import java.util.UUID;
 import com.flipkart.constant.NotificationTypeConstant;
 import com.flipkart.constant.PaymentModeConstant;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public interface NotificationInterface {
 

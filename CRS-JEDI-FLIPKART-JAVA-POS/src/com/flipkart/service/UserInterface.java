@@ -5,16 +5,6 @@ package com.flipkart.service;
 
 import com.flipkart.exception.UserNotFoundException;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public interface UserInterface {
 

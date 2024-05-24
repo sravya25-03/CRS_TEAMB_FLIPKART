@@ -6,16 +6,6 @@ package com.flipkart.dao;
 import com.flipkart.bean.Student;
 import com.flipkart.exception.StudentNotRegisteredException;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public interface StudentDAOInterface {
 	

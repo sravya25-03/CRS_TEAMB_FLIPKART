@@ -7,16 +7,6 @@ import com.flipkart.exception.CourseLimitExceededException;
 import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.exception.SeatNotAvailableException;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class StudentValidator {
 

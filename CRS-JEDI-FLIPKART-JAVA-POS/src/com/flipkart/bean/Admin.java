@@ -5,16 +5,6 @@ import java.util.Date;
 import com.flipkart.constant.GenderConstant;
 import com.flipkart.constant.RoleConstant;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class Admin extends User
 {

@@ -9,16 +9,7 @@ import com.flipkart.bean.Student;
 import com.flipkart.client.CRSApplication;
 import com.flipkart.constant.GenderConstant;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
+
 
 public class StudentOperation implements StudentInterface {
 	

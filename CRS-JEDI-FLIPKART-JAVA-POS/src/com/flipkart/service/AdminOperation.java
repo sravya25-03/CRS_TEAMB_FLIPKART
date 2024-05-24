@@ -12,16 +12,6 @@ import com.flipkart.bean.*;
 import com.flipkart.dao.AdminDAOInterface;
 import com.flipkart.dao.AdminDAOImple;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class AdminOperation implements AdminInterface{
 	

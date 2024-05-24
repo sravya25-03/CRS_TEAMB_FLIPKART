@@ -9,16 +9,6 @@ import com.flipkart.dao.ProfessorDAOInterface;
 import com.flipkart.dao.ProfessorDAOImple;
 import com.flipkart.exception.GradeNotAllotedException;
 
-/**
- * @author Group-A
- * Aaryan Pawar
- * Harsh Garg
- * Pulkit Bhargava
- * Rudra Tiwari
- * Shruti Sharma
- * Vedant Patel
- *
- */
 
 public class ProfessorOperation implements ProfessorInterface {
 	
