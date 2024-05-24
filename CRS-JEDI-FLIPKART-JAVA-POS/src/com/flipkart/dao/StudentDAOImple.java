@@ -1,5 +1,5 @@
 /**
- * 
+ * The StudentDAOImple class provides implementation for operations related to student data access.
  */
 package com.flipkart.dao;
 
@@ -9,12 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
 import com.flipkart.bean.Student;
 import com.flipkart.constant.SQLQueriesConstant;
 import com.flipkart.exception.StudentNotRegisteredException;
 import com.flipkart.utils.DBUtils;
-
 
 public class StudentDAOImple implements StudentDAOInterface {
 	
@@ -24,11 +22,15 @@ public class StudentDAOImple implements StudentDAOInterface {
 	{
 		
 	}
- public static StudentDAOImple getInstance()
+
+	/**
+	 * Method to get instance of StudentDAOImple class
+	 * @return instance of StudentDAOImple
+	 */
+	public static StudentDAOImple getInstance()
 	{
 		if(instance==null)
 		{
-			// This is a synchronized block, when multiple threads will access this instance
 			synchronized(StudentDAOImple.class){
 				instance=new StudentDAOImple();
 			}
@@ -36,6 +38,12 @@ public class StudentDAOImple implements StudentDAOInterface {
 		return instance;
 	}
 
+	/**
+	 * Method to add student to the database
+	 * @param student: Student object containing student details
+	 * @return studentId of the added student
+	 * @throws StudentNotRegisteredException
+	 */
 	@Override
 	public String addStudent(Student student) throws StudentNotRegisteredException{
 		Connection connection=DBUtils.getConnection();
@@ -57,13 +65,11 @@ public class StudentDAOImple implements StudentDAOInterface {
 			{
 
 				//add the student record
-				//"insert into student (userId,branchName,batch,isApproved) values (?,?,?,?)";
 				PreparedStatement preparedStatementStudent;
 				preparedStatementStudent=connection.prepareStatement(SQLQueriesConstant.ADD_STUDENT,Statement.RETURN_GENERATED_KEYS);
 				preparedStatementStudent.setString(1,student.getUserId());
 				preparedStatementStudent.setString(2, student.getDepartment());
 				preparedStatementStudent.setInt(3, student.getGradYear());
-				//preparedStatementStudent.setBoolean(4, true);
 				preparedStatementStudent.executeUpdate();
 				ResultSet results=preparedStatementStudent.getGeneratedKeys();
 				if(results.next())
@@ -88,48 +94,13 @@ public class StudentDAOImple implements StudentDAOInterface {
 		return studentId;
 	}
 
+	/**
+	 * Method to get student ID based on user ID
+	 * @param userId: User ID of the student
+	 * @return studentId corresponding to the userId
+	 */
 	@Override
 	public String getStudentId(String userId) {
 		Connection connection=DBUtils.getConnection();
 		try {
-			PreparedStatement statement = connection.prepareStatement(SQLQueriesConstant.GET_STUDENT_ID);
-			statement.setString(1, userId);
-			ResultSet rs = statement.executeQuery();
-			
-			if(rs.next())
-			{
-				return rs.getString("studentId");
-			}
-				
-		}
-		catch(SQLException e)
-		{
-			System.out.println(e.getMessage());
-		}
-		
-		return null;
-	}
-
-	@Override
-	public boolean isApproved(String studentId) {
-		Connection connection=DBUtils.getConnection();
-		try {
-			PreparedStatement statement = connection.prepareStatement(SQLQueriesConstant.IS_APPROVED);
-			statement.setString(1, studentId);
-			ResultSet rs = statement.executeQuery();
-			
-			if(rs.next())
-			{
-				return rs.getBoolean("isApproved");
-			}
-				
-		}
-		catch(SQLException e)
-		{
-			System.out.println(e.getMessage());
-		}
-		
-		return false;
-	}
-
-}
+			PreparedStatement statem
