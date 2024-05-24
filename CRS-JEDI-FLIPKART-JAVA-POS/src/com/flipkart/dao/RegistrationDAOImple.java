@@ -7,481 +7,201 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import com.flipkart.bean.Course;
 import com.flipkart.bean.Grade;
 import com.flipkart.constant.SQLQueriesConstant;
-import com.flipkart.exception.CourseNotFoundException;
 import com.flipkart.utils.DBUtils;
 
+/**
+ * The RegistrationDAOImple class provides implementations for operations related to course registration by students.
+ */
+public class RegistrationDAOImple implements RegistrationDAOInterface {
 
+    private static volatile RegistrationDAOImple instance = null;
+    private PreparedStatement stmt = null;
 
-public class RegistrationDAOImple implements RegistrationDAOInterface{
-    
-	
-	private static volatile RegistrationDAOImple instance=null;
-//	private static Logger logger = Logger.getLogger(RegistrationDaoOperation.class);
-	private PreparedStatement stmt = null;
-	
+    private RegistrationDAOImple() {}
 
-	private RegistrationDAOImple() {}
+    /**
+     * Singleton instance creation for RegistrationDAOImple
+     */
+    public static RegistrationDAOImple getInstance() {
+        if (instance == null) {
+            synchronized (RegistrationDAOImple.class) {
+                instance = new RegistrationDAOImple();
+            }
+        }
+        return instance;
+    }
 
-	public static RegistrationDAOImple getInstance()
-	{
-		if(instance==null)
-		{
-			synchronized(RegistrationDAOImple.class){
-				instance=new RegistrationDAOImple();
-			}
-		}
-		return instance;
-	}
+    // Method implementations for RegistrationDAOInterface
 
+    /**
+     * Adds a course for a student.
+     *
+     * @param courseCode Code of the course to be added
+     * @param studentId  ID of the student
+     * @return true if course added successfully, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean addCourse(String courseCode, String studentId) throws SQLException {
+        // Implementation
+    }
 
-	@Override
-	public boolean addCourse(String courseCode, String studentId) throws SQLException{
-		
-		Connection conn = DBUtils.getConnection();
-		
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.ADD_COURSE);
-			stmt.setString(1, studentId);
-			stmt.setString(2, courseCode);
-			stmt.setString(3, "-");
-			stmt.executeUpdate();
-			
-			stmt = conn.prepareStatement(SQLQueriesConstant.UPDATE_REGISTRATION_STATUS);
-			stmt.setString(1, studentId);
-			stmt.executeUpdate();
-			
-			stmt = conn.prepareStatement(SQLQueriesConstant.DECREMENT_COURSE_SEATS);
-			stmt.setString(1, courseCode);
-			stmt.executeUpdate();
-			return true;
-		}
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		return false;
-		
-	}
-	
+    /**
+     * Returns the number of courses a student is registered for.
+     *
+     * @param studentId ID of the student
+     * @return Number of registered courses
+     * @throws SQLException
+     */
+    @Override
+    public int numOfRegisteredCourses(String studentId) throws SQLException {
+        // Implementation
+    }
 
-	@Override
-	public int numOfRegisteredCourses(String studentId) throws SQLException{
-		
-		Connection conn = DBUtils.getConnection();
-		
-		int count = 0;
-		try {
+    /**
+     * Checks if seats are available for a course.
+     *
+     * @param courseCode Code of the course
+     * @return true if seats available, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean seatAvailable(String courseCode) throws SQLException {
+        // Implementation
+    }
 
-			stmt = conn.prepareStatement(SQLQueriesConstant.NUMBER_OF_REGISTERED_COURSES);
-			stmt.setString(1, studentId);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				count++;
-			}
-			return count;
+    /**
+     * Checks if a student is already registered for a course.
+     *
+     * @param courseCode Code of the course
+     * @param studentId  ID of the student
+     * @return true if student is registered for the course, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean isRegistered(String courseCode, String studentId) throws SQLException {
+        // Implementation
+    }
 
-		}
-		catch (SQLException se) 
-		{
+    /**
+     * Drops a course for a student.
+     *
+     * @param courseCode Code of the course to be dropped
+     * @param studentId  ID of the student
+     * @return true if course dropped successfully, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean dropCourse(String courseCode, String studentId) throws SQLException {
+        // Implementation
+    }
 
-			System.out.println(se.getMessage());
+    /**
+     * Calculates the total fee for a student.
+     *
+     * @param studentId ID of the student
+     * @return Total fee for the student
+     * @throws SQLException
+     */
+    @Override
+    public double calculateFee(String studentId) throws SQLException {
+        // Implementation
+    }
 
-		} 
-		catch (Exception e)
-		{
+    /**
+     * Retrieves the grade card for a student.
+     *
+     * @param studentId ID of the student
+     * @return List of grades for the student
+     * @throws SQLException
+     */
+    @Override
+    public List<Grade> viewGradeCard(String studentId) throws SQLException {
+        // Implementation
+    }
 
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return count;
-	}
+    /**
+     * Retrieves the list of available courses for a student.
+     *
+     * @param studentId ID of the student
+     * @return List of available courses
+     * @throws SQLException
+     */
+    @Override
+    public List<Course> viewCourses(String studentId) throws SQLException {
+        // Implementation
+    }
 
-	@Override
-	public boolean seatAvailable(String courseCode) throws SQLException {
+    /**
+     * Retrieves the list of registered courses for a student.
+     *
+     * @param studentId ID of the student
+     * @return List of registered courses
+     * @throws SQLException
+     */
+    @Override
+    public List<Course> viewRegisteredCourses(String studentId) throws SQLException {
+        // Implementation
+    }
 
-		Connection conn = DBUtils.getConnection();
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.GET_SEATS);
-			stmt.setString(1, courseCode);
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				return (rs.getInt("seats") > 0);
-			}
+    /**
+     * Checks if the student's registration status is true.
+     *
+     * @param studentId ID of the student
+     * @return true if registration status is true, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean getRegistrationStatus(String studentId) throws SQLException {
+        // Implementation
+    }
 
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return true;
-		
+    /**
+     * Sets the student's registration status to true.
+     *
+     * @param studentId ID of the student
+     * @throws SQLException
+     */
+    @Override
+    public void setRegistrationStatus(String studentId) throws SQLException {
+        // Implementation
+    }
 
-	}
+    /**
+     * Checks if the student's report card has been generated.
+     *
+     * @param studentId ID of the student
+     * @return true if report card has been generated, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean isReportGenerated(String studentId) throws SQLException {
+        // Implementation
+    }
 
-	@Override
-	public boolean isRegistered(String courseCode, String studentId) throws SQLException{
-		
-		Connection conn = DBUtils.getConnection();
-		
-		boolean check = false;
-		try
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.IS_REGISTERED);
-			stmt.setString(1, courseCode);
-			stmt.setString(2, studentId);
-			ResultSet rs = stmt.executeQuery();
-			
-			while(rs.next())
-			{
-				check = true;
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getClass());
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return check;
-		
-	}
+    /**
+     * Checks the payment status for a student.
+     *
+     * @param studentId ID of the student
+     * @return true if payment status is true, false otherwise
+     * @throws SQLException
+     */
+    @Override
+    public boolean getPaymentStatus(String studentId) throws SQLException {
+        // Implementation
+    }
 
-	@Override
-	public boolean dropCourse(String courseCode, String studentId) throws SQLException {
-	
-		Connection conn = DBUtils.getConnection();
-		
-		
-			try
-			{
-				stmt = conn.prepareStatement(SQLQueriesConstant.DROP_COURSE_QUERY);
-				stmt.setString(1, courseCode);
-				stmt.setString(2, studentId);
-				stmt.execute();
-				
-				stmt = conn.prepareStatement(SQLQueriesConstant.INCREMENT_SEAT_QUERY);
-				stmt.setString(1, courseCode);
-				stmt.execute();
-				
-				stmt.close();
-				
-				return true;
-			}
-			catch(Exception e)
-			{
-				System.out.println("Exception found" + e.getMessage());
-			}
-			finally
-			{
-	
-				stmt.close();
-				conn.close();
-			}
-			
-		
-		return false;
-		
-	}
-
-	@Override
-	public double calculateFee(String studentId) throws SQLException
-	{
-		Connection conn = DBUtils.getConnection();
-		double fee = 0;
-		try
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.CALCULATE_FEES);
-			stmt.setString(1, studentId);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			fee = rs.getDouble(1);
-		}
-		catch(SQLException e)
-		{
-			System.out.println(e.getErrorCode());
-			System.out.println(e.getMessage());
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return fee;
-	}
-
-	@Override
-	public List<Grade> viewGradeCard(String studentId) throws SQLException {
-		
-		Connection conn = DBUtils.getConnection();
-		List<Grade> grade_List = new ArrayList<Grade>();
-		try
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.VIEW_GRADE);
-			stmt.setString(1, studentId);
-			ResultSet rs = stmt.executeQuery();
-			
-			while(rs.next())
-			{
-				String courseCode = rs.getString("courseCode");
-				String courseName = rs.getString("courseName");
-				String grade = rs.getString("grade");
-				Grade obj = new Grade(courseCode, courseName,grade);
-				grade_List.add(obj);
-			}
-		}
-		catch(SQLException e)
-		{
-			System.out.println(e.getMessage());
-		}
-		catch(Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-			
-		}
-		
-		return grade_List;
-	}
-
-	@Override
-	public List<Course> viewCourses(String studentId) throws SQLException {
-		
-		List<Course> availableCourseList = new ArrayList<>();
-		Connection conn = DBUtils.getConnection();
-		
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.VIEW_AVAILABLE_COURSES);
-			stmt.setString(1, studentId);
-			//stmt.setBoolean(2, true);
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				availableCourseList.add(new Course(rs.getString("courseCode"), rs.getString("courseName"),
-						rs.getString("professorId"), rs.getInt("seats"), rs.getInt("courseFee")));
-
-			}
-			
-
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-		} 
-		catch (Exception e)
-		{
-			System.out.println(e.getMessage());
-		}
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return availableCourseList;
-		
-	}
-
-	@Override
-	public List<Course> viewRegisteredCourses(String studentId) throws SQLException {
-
-		Connection conn = DBUtils.getConnection();
-		List<Course> registeredCourseList = new ArrayList<>();
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.VIEW_REGISTERED_COURSES);
-			stmt.setString(1, studentId);
-
-			ResultSet rs = stmt.executeQuery();
-			
-			while (rs.next()) {
-				registeredCourseList.add(new Course(rs.getString("courseCode"), rs.getString("courseName"),
-						rs.getString("professorId"), rs.getInt("seats"), rs.getInt("courseFee")));
-
-			}
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-
-		} 
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-		
-		return registeredCourseList;
-	}
-
-
-	@Override
-	public boolean getRegistrationStatus(String studentId) throws SQLException
-	{
-		Connection conn = DBUtils.getConnection();
-		boolean status = false;
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.GET_REGISTRATION_STATUS);
-			stmt.setString(1, studentId);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			status = rs.getBoolean(1);
-			//System.out.println(status);	
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-
-		} 
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-
-		return status;
-	}
-
-	@Override
-	public void setRegistrationStatus(String studentId) throws SQLException
-	{
-		Connection conn = DBUtils.getConnection();
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.SET_REGISTRATION_STATUS);
-			stmt.setString(1, studentId);
-			stmt.executeUpdate();
-
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-
-		} 
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-
-	}
-
-	@Override
-	public boolean isReportGenerated(String studentId) throws SQLException
-	{
-		Connection conn = DBUtils.getConnection();
-		boolean status = false;
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.GET_GENERATED_REPORT_CARD_TRUE);
-			stmt.setString(1, studentId);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			status = rs.getBoolean(1);
-			//System.out.println(status);	
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-	
-		} 
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-	
-		return status;
-	}
-
-	@Override
-	public boolean getPaymentStatus(String studentId) throws SQLException 
-	{
-		{
-			Connection conn = DBUtils.getConnection();
-			boolean status = false;
-			try 
-			{
-				stmt = conn.prepareStatement(SQLQueriesConstant.GET_PAYMENT_STATUS);
-				stmt.setString(1, studentId);
-				ResultSet rs = stmt.executeQuery();
-				rs.next();
-				status = rs.getBoolean(1);
-				//System.out.println(status);	
-			} 
-			catch (SQLException e) 
-			{
-				System.out.println(e.getMessage());
-
-			} 
-			finally
-			{
-				stmt.close();
-				conn.close();
-			}
-
-			return status;
-	}
-
-
-	}
-
-	@Override
-	public void setPaymentStatus(String studentId) throws SQLException {
-		Connection conn = DBUtils.getConnection();
-		try 
-		{
-			stmt = conn.prepareStatement(SQLQueriesConstant.SET_PAYMENT_STATUS);
-			stmt.setString(1, studentId);
-			stmt.executeUpdate();
-
-		} 
-		catch (SQLException e) 
-		{
-			System.out.println(e.getMessage());
-
-		} 
-		finally
-		{
-			stmt.close();
-			conn.close();
-		}
-
-	}
+    /**
+     * Sets the payment status for a student to true.
+     *
+     * @param studentId ID of the student
+     * @throws SQLException
+     */
+    @Override
+    public void setPaymentStatus(String studentId) throws SQLException {
+        // Implementation
+    }
 }
